@@ -1,0 +1,79 @@
+/* I am building this program to auto-mate the process of sending reminder letters to customers when their invoices are still outstanding and has become overdue.*/
+
+import java.util.ArrayList;
+
+public class reminder {
+
+    String name;
+    int invoice;
+    double balance;
+    String date;
+
+    public reminder (String customerName, int invoiceNumber, double outstandingBalance, String dueDate) {
+
+    name = customerName;
+    invoice = invoiceNumber;
+    
+ 
+    }
+    
+    
+    public void sendReminder() {
+        
+        // This function below is to send out email reminders to customer when they have outstanding invoices due.
+
+        ArrayList<String> companyNames = new ArrayList<String>();
+        companyNames.add("ABC");
+        companyNames.add("Kids Corner");
+        companyNames.add("Normans");
+        companyNames.add("Greens Winery");
+        companyNames.add("Woodsville Hospital");
+        
+        String name = "Jennifer";
+        int invoice = 10159;
+        double balance = 50.00;
+        String date = "10/05/2021";
+        
+
+        String greeting = "Hi " + name + ",";
+        String signed = "Regards,";
+        String signedName = "Accounts Receivable";
+        
+        for (String companyName: companyNames) {
+
+            if (balance < 0) {
+            
+            System.out.println(greeting);
+            System.out.println("Kindly note that you still have a credit balance of" + balance + ". We recommend that you use this credit to offset against your future invoices.");
+            System.out.println(signed);
+            System.out.println(signedName);
+
+        } else if (balance == 0) {
+            
+            System.out.println(greeting);
+            System.out.println("Thank you for paying!");
+            System.out.println(signed);
+            System.out.println(signedName);
+            
+        } else {
+            
+            System.out.println(greeting);
+            System.out.println("This is a friendly reminder that you still have invoice " + invoice + " outstanding, which was due on " + date + ". Hence, a total of " + balance + " is now outstanding and requires your immediate attention. Should you believe this has been paid, kindly provide us a copy of your remittance.");
+            System.out.println(signed);
+            System.out.println(signedName);
+            
+        }
+        
+        }   
+    }
+    
+    public static void main(String[] args) {
+
+        reminder autoReminder = new reminder();
+        autoReminder.sendReminder();
+        
+
+        
+    }
+    
+}
