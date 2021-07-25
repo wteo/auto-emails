@@ -1,0 +1,30 @@
+import java.util.Arrays;
+
+public class totalOutstanding {
+
+
+	public static void main(String[] args) {
+	    
+	    double[][] balance = {{100, -50}, {250.66, -999.50}, {500, -16.23}};
+
+	    //row = customer
+	    //column = debit/discount
+	    System.out.println(Arrays.deepToString(balance));
+	    
+	    double BalanceWithoutGST [][] = new double[3][2];
+	    double GST [][] = new double [3][2];
+	    
+	    
+	    for (int i = 0; i < balance.length; i++) {
+	        for (int j = 0; j < balance[i].length; j++) {
+	            BalanceWithoutGST [i][j] = balance[i][j] - balance[i][j]*0.1;
+	            GST[i][j] = balance[i][j] - BalanceWithoutGST[i][j];
+	  	        }
+	    }
+	    
+	    System.out.println(Arrays.deepToString(BalanceWithoutGST));
+	    System.out.println(Arrays.deepToString(GST));
+
+
+	}
+}
